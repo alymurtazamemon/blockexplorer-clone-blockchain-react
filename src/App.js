@@ -4,6 +4,7 @@ import Block from "./components/Block";
 import alchemy from "./utils/alchemy";
 
 import "./App.css";
+import Transactions from "./components/Transactions";
 
 function App() {
     const [blockNumber, setBlockNumber] = useState();
@@ -20,11 +21,20 @@ function App() {
 
     return (
         <div className="App">
-            <Link to={`/block/${blockNumber}`}>{blockNumber}</Link>
+            <Link to="/">HOME</Link>
+            <br />
+            <br />
+            <br />
 
             <Switch>
+                <Route exact path="/">
+                    <Link to={`/block/${blockNumber}`}>{blockNumber}</Link>
+                </Route>
                 <Route path="/block/:blockNumber">
                     <Block blockNumber={blockNumber} />
+                </Route>
+                <Route path="/transactions">
+                    <Transactions />
                 </Route>
             </Switch>
         </div>

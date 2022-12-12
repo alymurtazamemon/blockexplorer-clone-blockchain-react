@@ -1,6 +1,7 @@
 import alchemy from "../utils/alchemy";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
+import { Link } from "react-router-dom";
 
 function Block(props) {
     const [blockInfo, setBlockInfo] = useState({});
@@ -41,10 +42,12 @@ function Block(props) {
             <p>Time Stamp {blockInfo.timestamp}</p>
             <p>
                 Transactions{" "}
-                {blockInfo.transactions != undefined
-                    ? blockInfo.transactions.length
-                    : 0}{" "}
-                transactions
+                <Link to="/transactions">
+                    {blockInfo.transactions != undefined
+                        ? blockInfo.transactions.length
+                        : 0}
+                    {" transactions"}
+                </Link>
             </p>
             <p>Fee Recipient {blockInfo.miner}</p>
             <p>Gas Used {blockInfo.gasUsed}</p>
