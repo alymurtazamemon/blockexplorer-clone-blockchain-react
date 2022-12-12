@@ -16,7 +16,7 @@ function App() {
         }
 
         getBlockNumber();
-    });
+    }, []);
 
     return (
         <div className="App">
