@@ -29,7 +29,7 @@ function App() {
                     <Link to={`/block/${blockNumber}`}>{blockNumber}</Link>
                 </Route>
                 <Route path="/block/:blockNumber">
-                    <Block blockNumber={blockNumber} />
+                    <Block />
                 </Route>
                 <Route exact path="/txs">
                     <Transactions />

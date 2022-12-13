@@ -1,15 +1,16 @@
 import alchemy from "../utils/alchemy";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-function Block(props) {
+function Block() {
     const [blockInfo, setBlockInfo] = useState({});
+    const { blockNumber } = useParams();
 
     useEffect(() => {
         async function getBlockInformation() {
             const info = await alchemy.core.getBlockWithTransactions(
-                props.blockNumber
+                Number(blockNumber)
             );
             console.log(info);
             setBlockInfo({
