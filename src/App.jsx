@@ -33,7 +33,7 @@ function App() {
                 <Route path="/block/:blockNumber">
                     <Block blockNumber={blockNumber} />
                 </Route>
-                <Route path="/transactions">
+                <Route path="/txs">
                     <Transactions />
                 </Route>
             </Switch>

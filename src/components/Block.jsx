@@ -34,7 +34,7 @@ function Block(props) {
         }
 
         getBlockInformation();
-    }, []);
+    }, [props.blockNumber]);
 
     return (
         <section>
@@ -42,7 +42,7 @@ function Block(props) {
             <p>Time Stamp {blockInfo.timestamp}</p>
             <p>
                 Transactions{" "}
-                <Link to="/transactions">
+                <Link to={`/txs?block=${blockInfo.number}`}>
                     {blockInfo.transactions != undefined
                         ? blockInfo.transactions.length
                         : 0}
