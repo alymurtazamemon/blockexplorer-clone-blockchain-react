@@ -1,10 +1,9 @@
 import alchemy from "../utils/alchemy";
 import { useEffect, useState } from "react";
-import { ethers } from "ethers";
 import { Link, useParams } from "react-router-dom";
 
 function Block() {
-    const [blockInfo, setBlockInfo] = useState({});
+    const [blockInfo, setBlockInfo] = useState(<div>Loading...</div>);
     const { blockNumber } = useParams();
 
     useEffect(() => {
@@ -13,54 +12,39 @@ function Block() {
                 Number(blockNumber)
             );
             console.log(info);
-            setBlockInfo({
-                number: info.number,
-                nonce: info.nonce,
-                miner: info.miner,
-                parentHash: info.parentHash,
-                timestamp: info.timestamp,
-                hash: info.hash,
-                difficulty: info.difficulty,
-                extraData: info.extraData,
-                transactions: info.transactions,
-                baseFeePerGas:
-                    info.baseFeePerGas == null || undefined
-                        ? ethers.utils.parseUnits("0", "wei").toString()
-                        : ethers.utils
-                              .parseUnits(info.baseFeePerGas.toString(), "wei")
-                              .toString(),
-                gasLimit: info.gasLimit.toString(),
-                gasUsed: info.gasUsed.toString(),
-            });
+            setBlockInfo(
+                <section>
+                    <p>Block {info.number}</p>
+                    <p>Time Stamp {info.timestamp}</p>
+                    <p>
+                        Transactions{" "}
+                        <Link to={`/txs?block=${blockInfo.number}`}>
+                            {info.transactions != undefined
+                                ? info.transactions.length
+                                : 0}
+                            {" transactions"}
+                        </Link>
+                    </p>
+                    <p>Fee Recipient {info.miner}</p>
+                    <p>Gas Used {info.gasUsed.toString()}</p>
+                    <p>Gas Limit {info.gasLimit.toString()}</p>
+                    <p>
+                        Base Fee Per Gas{" "}
+                        {info.baseFeePerGas.toString() / 1000000000} Gwei
+                    </p>
+                    <p>Extra Data {info.extraData}</p>
+                    <p>Hash {info.hash}</p>
+                    <p>Parent Hash {info.hash}</p>
+                    <p>Nonce {info.nonce}</p>
+                    <p>Difficulty {info.difficulty}</p>
+                </section>
+            );
         }
 
         getBlockInformation();
     }, []);
 
-    return (
-        <section>
-            <p>Block {blockInfo.number}</p>
-            <p>Time Stamp {blockInfo.timestamp}</p>
-            <p>
-                Transactions{" "}
-                <Link to={`/txs?block=${blockInfo.number}`}>
-                    {blockInfo.transactions != undefined
-                        ? blockInfo.transactions.length
-                        : 0}
-                    {" transactions"}
-                </Link>
-            </p>
-            <p>Fee Recipient {blockInfo.miner}</p>
-            <p>Gas Used {blockInfo.gasUsed}</p>
-            <p>Gas Limit {blockInfo.gasLimit}</p>
-            <p>Base Fee Per Gas {blockInfo.baseFeePerGas} Wei</p>
-            <p>Extra Data {blockInfo.extraData}</p>
-            <p>Hash {blockInfo.hash}</p>
-            <p>Parent Hash {blockInfo.hash}</p>
-            <p>Nonce {blockInfo.nonce}</p>
-            <p>Difficulty {blockInfo.difficulty}</p>
-        </section>
-    );
+    return blockInfo;
 }
 
 export default Block;
