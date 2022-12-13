@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 import { DataContext } from "../context/DataContext";
 
@@ -27,6 +27,7 @@ function Main() {
                 ) : (
                     <div>Loading...</div>
                 )}
+                <Link to="/blocks">View All Blocks</Link>
             </div>
             <div>
                 <h1>Latest Transactions</h1>
@@ -47,6 +48,7 @@ function Main() {
                 ) : (
                     <p>Loading...</p>
                 )}
+                <Link to="/txs">View All Transactions</Link>
             </div>
         </div>
     );

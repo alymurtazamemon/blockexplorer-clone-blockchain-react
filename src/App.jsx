@@ -6,6 +6,7 @@ import "./App.css";
 
 import Header from "./components/Header";
 import Main from "./components/Main";
+import Blocks from "./components/Blocks";
 import Block from "./components/Block";
 import Transactions from "./components/Transactions";
 import Transaction from "./components/Transaction";
@@ -23,6 +24,9 @@ function App() {
             <Switch>
                 <Route exact path="/">
                     <Main />
+                </Route>
+                <Route exact path="/blocks">
+                    <Blocks />
                 </Route>
                 <Route path="/block/:blockNumber">
                     <Block />
