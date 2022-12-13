@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import alchemy from "../utils/alchemy";
+import { Link } from "react-router-dom";
 
 function Transactions() {
     const [transactions, setTransactions] = useState([]);
@@ -30,7 +31,9 @@ function Transactions() {
 
         return (
             <div key={index} className="flex">
-                <p>{tx.hash.slice(0, 16)}...</p>
+                <Link to={`/tx/${tx.hash}`}>
+                    <p>{tx.hash.slice(0, 16)}...</p>
+                </Link>
                 <p>{tx.blockNumber}</p>
                 <p>{tx.from.slice(0, 16)}...</p>
                 <p>{tx.to.slice(0, 16)}...</p>

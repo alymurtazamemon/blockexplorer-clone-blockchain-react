@@ -5,6 +5,7 @@ import alchemy from "./utils/alchemy";
 
 import "./App.css";
 import Transactions from "./components/Transactions";
+import Transaction from "./components/Transaction";
 
 function App() {
     const [blockNumber, setBlockNumber] = useState();
@@ -33,8 +34,11 @@ function App() {
                 <Route path="/block/:blockNumber">
                     <Block blockNumber={blockNumber} />
                 </Route>
-                <Route path="/txs">
+                <Route exact path="/txs">
                     <Transactions />
+                </Route>
+                <Route path="/tx/:hash">
+                    <Transaction />
                 </Route>
             </Switch>
         </div>

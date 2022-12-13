@@ -34,7 +34,7 @@ function Block(props) {
         }
 
         getBlockInformation();
-    }, [props.blockNumber]);
+    }, []);
 
     return (
         <section>
