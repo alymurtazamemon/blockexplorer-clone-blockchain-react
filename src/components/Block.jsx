@@ -18,7 +18,7 @@ function Block() {
                     <p>Time Stamp {info.timestamp}</p>
                     <p>
                         Transactions{" "}
-                        <Link to={`/txs?block=${blockInfo.number}`}>
+                        <Link to={`/txs?block=${info.number}`}>
                             {info.transactions != undefined
                                 ? info.transactions.length
                                 : 0}
