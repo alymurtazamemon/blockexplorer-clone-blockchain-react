@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import alchemy from "./utils/alchemy";
 import "./App.css";
 
+import Header from "./components/Header";
+import Main from "./components/Main";
 import Block from "./components/Block";
 import Transactions from "./components/Transactions";
 import Transaction from "./components/Transaction";
-import Header from "./components/Header";
 
 function App() {
     const [blockNumber, setBlockNumber] = useState();
@@ -26,7 +27,7 @@ function App() {
             <Header />
             <Switch>
                 <Route exact path="/">
-                    <Link to={`/block/${blockNumber}`}>{blockNumber}</Link>
+                    <Main blockNumber={blockNumber} />
                 </Route>
                 <Route path="/block/:blockNumber">
                     <Block />
