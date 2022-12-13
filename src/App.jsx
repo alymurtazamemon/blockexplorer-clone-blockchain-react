@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
 import { Switch, Route } from "react-router-dom";
-import alchemy from "./utils/alchemy";
+import { DataContext } from "./context/DataContext";
+
 import "./App.css";
 
 import Header from "./components/Header";
@@ -10,16 +11,10 @@ import Transactions from "./components/Transactions";
 import Transaction from "./components/Transaction";
 
 function App() {
-    const [blockNumber, setBlockNumber] = useState();
+    const { getBlockInformation } = useContext(DataContext);
 
     useEffect(() => {
-        async function getBlockNumber() {
-            const blockNumber = await alchemy.core.getBlockNumber();
-            setBlockNumber(blockNumber);
-            // await alchemy.core.getBlock(blockNumber).then(console.log);
-        }
-
-        getBlockNumber();
+        getBlockInformation();
     }, []);
 
     return (
@@ -27,7 +22,7 @@ function App() {
             <Header />
             <Switch>
                 <Route exact path="/">
-                    <Main blockNumber={blockNumber} />
+                    <Main />
                 </Route>
                 <Route path="/block/:blockNumber">
                     <Block />
