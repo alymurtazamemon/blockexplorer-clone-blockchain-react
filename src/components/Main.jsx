@@ -43,8 +43,13 @@ function Main() {
                 ) : (
                     <div>Loading...</div>
                 )}
-                <div className="py-4 text-center">
-                    <Link to="/blocks">View All Blocks</Link>
+                <div className="p-4 text-center">
+                    <Link
+                        to="/blocks"
+                        className="block bg-sky-100 text-sky-500 text-xs p-2 rounded-md"
+                    >
+                        View All Blocks
+                    </Link>
                 </div>
             </div>
             <div className="text-left px-8 border rounded-lg  divide-y w-1/2 ml-2">
@@ -83,8 +88,13 @@ function Main() {
                 ) : (
                     <p>Loading...</p>
                 )}
-                <div className="py-4 text-center">
-                    <Link to="/txs">View All Transactions</Link>
+                <div className="p-4 text-center">
+                    <Link
+                        to="/txs"
+                        className="block bg-sky-100 text-sky-500 text-xs p-2 rounded-md"
+                    >
+                        View All Transactions
+                    </Link>
                 </div>
             </div>
         </div>
