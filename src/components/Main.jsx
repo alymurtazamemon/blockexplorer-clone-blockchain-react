@@ -9,7 +9,7 @@ function Main() {
     return (
         <div className="flex px-24 py-8 items-stretch">
             <div className="text-left px-4 border rounded-lg divide-y w-1/2 mr-2">
-                <h1 className="py-4">Latest Blocks</h1>
+                <h1 className="py-4 text-xl font-bold">Latest Blocks</h1>
                 {blocksData.length ? (
                     blocksData.map((block, index) => {
                         if (index >= 10) {
@@ -48,7 +48,7 @@ function Main() {
                 </div>
             </div>
             <div className="text-left px-8 border rounded-lg  divide-y w-1/2 ml-2">
-                <h1 className="py-4">Latest Transactions</h1>
+                <h1 className="py-4 text-xl font-bold">Latest Transactions</h1>
                 {blocksData.length ? (
                     blocksData[0].transactions.map((tx, index) => {
                         if (index >= 10) {
