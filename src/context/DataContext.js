@@ -7,6 +7,7 @@ const DataContext = React.createContext();
 
 function DataContextProvider({ children }) {
     const [blocksData, setBlocksData] = useState([]);
+    const [transactions, setTransactions] = useState([]);
 
     async function getBlockInformation() {
         const blockNumber = await alchemy.core.getBlockNumber();
@@ -30,15 +31,23 @@ function DataContextProvider({ children }) {
                 difficulty: info.difficulty,
                 transactions: info.transactions,
             };
-            
-            setBlocksData(prevData => {
+
+            setBlocksData((prevData) => {
                 return [...prevData, blockObject];
-            })
+            });
+
+            if (i == 0) {
+                setTransactions((prevData) => {
+                    return [...prevData, ...blockObject.transactions];
+                });
+            }
         }
     }
 
     return (
-        <DataContext.Provider value={{ getBlockInformation, blocksData }}>
+        <DataContext.Provider
+            value={{ getBlockInformation, blocksData, transactions }}
+        >
             {children}
         </DataContext.Provider>
     );
