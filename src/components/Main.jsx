@@ -45,7 +45,9 @@ function Main() {
 
                         return (
                             <div key={index}>
-                                <p>{tx.hash.slice(0, 16)}...</p>
+                                <Link to={`/tx/${tx.hash}`}>
+                                    {tx.hash.slice(0, 16)}...
+                                </Link>
                                 <p>{tx.from.slice(0, 8)}...</p>
                                 <p>{tx.to.slice(0, 8)}...</p>
                             </div>
