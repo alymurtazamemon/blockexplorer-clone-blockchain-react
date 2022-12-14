@@ -11,7 +11,7 @@ function DataContextProvider({ children }) {
     async function getBlockInformation() {
         const blockNumber = await alchemy.core.getBlockNumber();
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 20; i++) {
             const info = await alchemy.core.getBlockWithTransactions(
                 blockNumber - i
             );

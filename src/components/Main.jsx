@@ -11,19 +11,25 @@ function Main() {
             <div>
                 <h1>Latest Blocks</h1>
                 {blocksData.length ? (
-                    blocksData.map((block) => (
-                        <div key={block.number}>
-                            <Link to={`/block/${block.number}`}>
-                                {block.number}
-                            </Link>
-                            <span>
-                                Fee Recipient {block.miner.slice(0, 8)}...{" "}
+                    blocksData.map((block, index) => {
+                        if (index >= 10) {
+                            return;
+                        }
+
+                        return (
+                            <div key={block.number}>
+                                <Link to={`/block/${block.number}`}>
+                                    {block.number}
+                                </Link>
+                                <span>
+                                    Fee Recipient {block.miner.slice(0, 8)}...{" "}
+                                    <br />
+                                    {block.transactions.length} txs
+                                </span>
                                 <br />
-                                {block.transactions.length} txs
-                            </span>
-                            <br />
-                        </div>
-                    ))
+                            </div>
+                        );
+                    })
                 ) : (
                     <div>Loading...</div>
                 )}
