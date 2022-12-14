@@ -10,6 +10,7 @@ import Blocks from "./components/Blocks";
 import Block from "./components/Block";
 import Transactions from "./components/Transactions";
 import Transaction from "./components/Transaction";
+import Footer from "./components/Footer";
 
 function App() {
     const { getBlockInformation } = useContext(DataContext);
@@ -38,6 +39,7 @@ function App() {
                     <Transaction />
                 </Route>
             </Switch>
+            <Footer />
         </div>
     );
 }
