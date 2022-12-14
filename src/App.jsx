@@ -20,25 +20,27 @@ function App() {
     }, []);
 
     return (
-        <div>
+        <div className="flex flex-col min-h-screen">
             <Header />
-            <Switch>
-                <Route exact path="/">
-                    <Main />
-                </Route>
-                <Route exact path="/blocks">
-                    <Blocks />
-                </Route>
-                <Route path="/block/:blockNumber">
-                    <Block />
-                </Route>
-                <Route exact path="/txs">
-                    <Transactions />
-                </Route>
-                <Route path="/tx/:hash">
-                    <Transaction />
-                </Route>
-            </Switch>
+            <main className="flex-1">
+                <Switch>
+                    <Route exact path="/">
+                        <Main />
+                    </Route>
+                    <Route exact path="/blocks">
+                        <Blocks />
+                    </Route>
+                    <Route path="/block/:blockNumber">
+                        <Block />
+                    </Route>
+                    <Route exact path="/txs">
+                        <Transactions />
+                    </Route>
+                    <Route path="/tx/:hash">
+                        <Transaction />
+                    </Route>
+                </Switch>
+            </main>
             <Footer />
         </div>
     );

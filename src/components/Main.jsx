@@ -19,23 +19,30 @@ function Main() {
                         return (
                             <div
                                 key={block.number}
-                                className="flex justify-between py-4"
+                                className="flex justify-between py-4 items-center"
                             >
-                                <div className="flex w-1/2">
-                                    <h2 className="mr-4 bg-gray-100 rounded-lg px-4 py-3 my-auto">
+                                <div className="flex w-1/2 items-center">
+                                    <h2 className="mr-4 bg-gray-100 rounded-lg px-4 py-3">
                                         Bk
                                     </h2>
                                     <Link
                                         to={`/block/${block.number}`}
-                                        className="my-auto"
+                                        className=" text-[#357BAD]"
                                     >
                                         {block.number}
                                     </Link>
                                 </div>
-                                <div className="w-1/2">
-                                    Fee Recipient {block.miner.slice(0, 16)}...
-                                    <br />
-                                    {block.transactions.length} txs
+                                <div className="w-60">
+                                    <p>
+                                        Fee Recipient{" "}
+                                        <span className="text-[#357BAD]">
+                                            {block.miner.slice(0, 12)}
+                                        </span>
+                                        ...
+                                    </p>
+                                    <p className="text-[#357BAD]">
+                                        {block.transactions.length} txs
+                                    </p>
                                 </div>
                             </div>
                         );
@@ -63,24 +70,32 @@ function Main() {
                         return (
                             <div
                                 key={index}
-                                className="flex justify-between py-4"
+                                className="flex justify-between py-4 items-center"
                             >
-                                <div className="flex">
-                                    <h2 className="mr-4 bg-gray-100 rounded-full px-4 py-3 my-auto">
+                                <div className="flex items-center">
+                                    <h2 className="mr-4 bg-gray-100 rounded-full px-4 py-3">
                                         Tx
                                     </h2>
                                     <Link
                                         to={`/tx/${tx.hash}`}
-                                        className="my-auto"
+                                        className="text-[#357BAD]"
                                     >
                                         {tx.hash.slice(0, 16)}...
                                     </Link>
                                 </div>
-                                <p className="my-auto">
-                                    {tx.from.slice(0, 8)}...
+                                <p>
+                                    From{" "}
+                                    <span className="text-[#357BAD]">
+                                        {tx.from.slice(0, 12)}
+                                    </span>
+                                    ...
                                 </p>
-                                <p className="my-auto">
-                                    {tx.to.slice(0, 8)}...
+                                <p>
+                                    To{" "}
+                                    <span className="text-[#357BAD]">
+                                        {tx.to.slice(0, 12)}
+                                    </span>
+                                    ...
                                 </p>
                             </div>
                         );
