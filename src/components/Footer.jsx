@@ -6,7 +6,7 @@ import {
 
 function Footer() {
     return (
-        <footer className="flex px-24 py-6 bg-sky-50 text-center items-center">
+        <footer className="flex px-24 py-6 bg-white text-center items-center border-t">
             <p className="mr-auto text-lg">© 2022 Ali Murtaza</p>
             <div className="flex items-center w-1/5 justify-between">
                 <p className="text-xl">Follow Me</p>
