@@ -22,7 +22,7 @@ function App() {
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-1">
+            <main className="flex-1 bg-gray-50">
                 <Switch>
                     <Route exact path="/">
                         <Main />
@@ -30,7 +30,7 @@ function App() {
                     <Route exact path="/blocks">
                         <Blocks />
                     </Route>
-                    <Route path="/block/:blockNumber">
+                    <Route path="/block/:blockNumberOrHash">
                         <Block />
                     </Route>
                     <Route exact path="/txs">

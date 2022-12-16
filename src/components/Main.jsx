@@ -7,7 +7,7 @@ function Main() {
     const { blocksData } = useContext(DataContext);
 
     return (
-        <div className="flex px-24 py-8 items-stretch bg-gray-50">
+        <div className="flex px-24 py-8 items-stretch">
             <div className="text-left px-4 border rounded-lg divide-y w-1/2 mr-2 bg-white">
                 <h1 className="py-4 text-xl font-bold">Latest Blocks</h1>
                 {blocksData.length ? (
