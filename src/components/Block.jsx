@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { DataContext } from "../context/DataContext";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 function Block() {
     const { blocksData } = useContext(DataContext);
@@ -25,18 +26,18 @@ function Block() {
 
                 <div className="flex">
                     <div className="w-1/2 divide-y">
-                        <p className="py-3">Block</p>
-                        <p className="py-3">Time Stamp</p>
-                        <p className="py-3">Transactions</p>
-                        <p className="py-3">Fee Recipient</p>
-                        <p className="py-3">Gas Used</p>
-                        <p className="py-3">Gas Limit</p>
-                        <p className="py-3">Base Fee Per Gas</p>
-                        <p className="py-3">Extra Data</p>
-                        <p className="py-3">Hash</p>
-                        <p className="py-3">Parent Hash</p>
-                        <p className="py-3">Nonce</p>
-                        <p className="py-3">Difficulty</p>
+                        <TitleComponent title="Block" />
+                        <TitleComponent title="Time Stamp" />
+                        <TitleComponent title="Transactions" />
+                        <TitleComponent title="Fee Recipient" />
+                        <TitleComponent title="Gas Used" />
+                        <TitleComponent title="Gas Limit" />
+                        <TitleComponent title="Base Fee Per Gas" />
+                        <TitleComponent title="Extra Data" />
+                        <TitleComponent title="Hash" />
+                        <TitleComponent title="Parent Hash" />
+                        <TitleComponent title="Nonce" />
+                        <TitleComponent title="Difficulty" />
                     </div>
                     <div className="divide-y w-full">
                         <p className="py-3">{info.number}</p>
@@ -66,6 +67,15 @@ function Block() {
                 </div>
             </div>
         </section>
+    );
+}
+
+function TitleComponent({ title }) {
+    return (
+        <div className="flex items-center">
+            <AiOutlineQuestionCircle />
+            <p className="ml-2 py-3">{title}</p>
+        </div>
     );
 }
 
