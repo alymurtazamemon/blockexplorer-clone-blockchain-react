@@ -41,7 +41,9 @@ function Main() {
                                         ...
                                     </p>
                                     <p className="text-[#357BAD]">
-                                        {block.transactions.length} txs
+                                        <Link to={`/txs?block=${block.number}`}>
+                                            {block.transactions.length} txs
+                                        </Link>
                                     </p>
                                 </div>
                             </div>
