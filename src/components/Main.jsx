@@ -92,7 +92,9 @@ function Main() {
                                 <p>
                                     From{" "}
                                     <span className="text-[#357BAD]">
-                                        {tx.from.slice(0, 12)}
+                                        <Link to={`/address/${tx.from}`}>
+                                            {tx.from.slice(0, 12)}
+                                        </Link>
                                     </span>
                                     ...
                                 </p>
