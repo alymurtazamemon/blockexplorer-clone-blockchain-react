@@ -36,7 +36,11 @@ function Main() {
                                     <p>
                                         Fee Recipient{" "}
                                         <span className="text-[#357BAD]">
-                                            {block.miner.slice(0, 12)}
+                                            <Link
+                                                to={`/address/${block.miner}`}
+                                            >
+                                                {block.miner.slice(0, 12)}
+                                            </Link>
                                         </span>
                                         ...
                                     </p>
