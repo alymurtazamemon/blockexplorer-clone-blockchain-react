@@ -101,7 +101,9 @@ function Main() {
                                 <p>
                                     To{" "}
                                     <span className="text-[#357BAD]">
-                                        {tx.to.slice(0, 12)}
+                                        <Link to={`/address/${tx.to}`}>
+                                            {tx.to.slice(0, 12)}
+                                        </Link>
                                     </span>
                                     ...
                                 </p>
