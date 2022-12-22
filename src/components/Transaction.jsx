@@ -43,8 +43,16 @@ function Transaction() {
                                     {info.blockHash}
                                 </Link>
                             </p>
-                            <p className="py-6 text-[#357BAD]">{info.from}</p>
-                            <p className="py-6 text-[#357BAD]">{info.to}</p>
+                            <p className="py-6 text-[#357BAD]">
+                                <Link to={`/address/${info.from}`}>
+                                    {info.from}
+                                </Link>
+                            </p>
+                            <p className="py-6 text-[#357BAD]">
+                                <Link to={`/address/${info.to}`}>
+                                    {info.to}
+                                </Link>
+                            </p>
                             <p className="py-6">
                                 {info.gasUsed.toString()} | 21000{" "}
                             </p>
