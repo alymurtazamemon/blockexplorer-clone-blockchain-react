@@ -21,7 +21,9 @@ function Blocks() {
                     </Link>
                 </p>
                 <p className="w-3/12 text-[#357BAD]">
-                    {blockData.miner.slice(0, 16)}...
+                    <Link to={`/address/${blockData.miner}`}>
+                        {blockData.miner.slice(0, 16)}...
+                    </Link>
                 </p>
                 <p className="w-2/12">{blockData.gasUsed}</p>
                 <p className="w-2/12">{blockData.gasLimit}</p>
