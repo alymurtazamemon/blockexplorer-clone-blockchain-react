@@ -50,7 +50,11 @@ function Block() {
                                 {" transactions"}
                             </Link>
                         </p>
-                        <p className="py-3">{info.miner}</p>
+                        <p className="py-3 text-[#357BAD]">
+                            <Link to={`/address/${info.miner}`}>
+                                {info.miner}
+                            </Link>
+                        </p>
                         <p className="py-3">{info.gasUsed}</p>
                         <p className="py-3">{info.gasLimit}</p>
                         <p className="py-3">{info.baseFeeInGwei} Gwei</p>
