@@ -45,9 +45,15 @@ function transactionsToComponent(txs) {
                     </Link>
                 </p>
                 <p className="w-3/12 text-[#357BAD]">
-                    {tx.from.slice(0, 16)}...
+                    <Link to={`/address/${tx.from}`}>
+                        {tx.from.slice(0, 16)}...
+                    </Link>
                 </p>
-                <p className="w-3/12 text-[#357BAD]">{tx.to.slice(0, 16)}...</p>
+                <p className="w-3/12 text-[#357BAD]">
+                    <Link to={`/address/${tx.to}`}>
+                        {tx.to.slice(0, 16)}...
+                    </Link>
+                </p>
                 <p className="w-2/12">{tx.data.slice(0, 16)}...</p>
             </section>
         );
