@@ -10,6 +10,7 @@ import Blocks from "./components/Blocks";
 import Block from "./components/Block";
 import Transactions from "./components/Transactions";
 import Transaction from "./components/Transaction";
+import AddressDetails from "./components/AddressDetails";
 import Footer from "./components/Footer";
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
                     </Route>
                     <Route path="/tx/:hash">
                         <Transaction />
+                    </Route>
+                    <Route path="/address/:address">
+                        <AddressDetails />
                     </Route>
                 </Switch>
             </main>
